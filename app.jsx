@@ -188,8 +188,8 @@ function Navbar() {
     <div className="fixed top-4 left-0 right-0 z-50 px-4 md:px-8">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2" aria-label="Madpil home">
-          <div className="liquid-glass-strong h-11 w-11 rounded-2xl grid place-items-center">
-            <span className="font-heading italic text-xl text-white leading-none -translate-y-px">M</span>
+          <div className="h-11 w-11 rounded-2xl overflow-hidden grid place-items-center">
+            <img src="assets/logoG.png" alt="Madpil logo" className="h-full w-full object-contain" />
           </div>
           <span className="hidden sm:inline font-heading italic text-white text-lg tracking-tight">Madpil Technology</span>
         </a>
