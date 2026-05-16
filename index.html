@@ -145,27 +145,31 @@
   .haze-fade-top    { background: linear-gradient(to bottom, #030814, rgba(3,8,20,0)); }
   .haze-fade-bottom { background: linear-gradient(to top,    #030814, rgba(3,8,20,0)); }
 
-  /* Hero stage — text flows above the video in normal document order. */
+  /* Hero stage — video fills the section, text overlaid at the top. */
   .hero-stage {
-    padding-top: 96px;            /* leave room for the floating navbar */
-  }
-  .hero-video-wrap {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    max-height: min(900px, 80svh);
+    max-height: min(900px, 88svh);
+    min-height: 460px;
     overflow: hidden;
     background: #030814;
   }
-  .hero-video-wrap video {
-    image-rendering: auto;
+  .hero-content {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    padding-top: 108px;           /* clears the fixed navbar */
+    display: flex;
+    flex-direction: column;
   }
   @media (max-width: 768px) {
-    .hero-stage { padding-top: 84px; }
-    .hero-video-wrap {
+    .hero-stage {
       aspect-ratio: 4 / 3;
-      max-height: 60svh;
+      max-height: 72svh;
+      min-height: 340px;
     }
+    .hero-content { padding-top: 88px; }
   }
 
   /* Reduce motion */

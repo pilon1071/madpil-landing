@@ -208,63 +208,70 @@ function Navbar() {
 ------------------------------------------------------------------ */
 function Hero() {
   return (
-    <section id="top" className="w-full hero-stage">
-      {/* Text content — in normal flow, above the video */}
-      <div className="max-w-7xl mx-auto px-6 md:px-8 pb-10">
-        <div className="max-w-2xl flex flex-col gap-6">
-          <motion.div
-            initial={{ opacity: 0, filter: "blur(10px)", y: 12 }}
-            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}>
-            <span className="liquid-glass inline-flex items-center gap-2 rounded-full pl-1 pr-4 py-1 text-sm font-body text-white/90">
-              <span className="bg-white text-black rounded-full px-2.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase">Nuevo</span>
-              <span className="font-light">Tu negocio, conectado por IA.</span>
-            </span>
-          </motion.div>
-
-          <h1 className="font-heading italic text-white text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[5rem] leading-[0.86] tracking-[-0.03em]">
-            <BlurText text="Tu negocio, despierto las 24 horas." stagger={0.1} />
-          </h1>
-
-          <motion.p
-            className="max-w-xl text-sm md:text-base text-white/90 font-body font-light leading-snug"
-            initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
-            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}>
-            Webs, redes, WhatsApp y recepción virtual conectados por IA. Un solo sistema. Sin pausas. Sin fricciones.
-          </motion.p>
-
-          <motion.div
-            className="flex flex-wrap items-center gap-3"
-            initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
-            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}>
-            <a href="#cta" className="liquid-glass-strong inline-flex items-center gap-2 rounded-full pl-5 pr-2 py-2 text-sm font-body font-medium text-white">
-              Agendar diagnóstico
-              <span className="bg-white text-black rounded-full p-1.5"><ArrowUpRight className="w-3.5 h-3.5" /></span>
-            </a>
-            <a href="#demo" className="inline-flex items-center gap-2 px-3 py-2 text-sm font-body text-white/90 hover:text-white transition">
-              <span className="grid place-items-center w-7 h-7 rounded-full liquid-glass">
-                <Play className="w-3 h-3 fill-white text-white" />
-              </span>
-              Ver demo
-            </a>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Video — full width below the text */}
-      <div className="hero-video-wrap">
+    <>
+      {/* Hero: video as background, text overlaid at the top */}
+      <section id="top" className="hero-stage">
+        {/* Video background — full resolution, contained */}
         <PingPongVideo
           src="assets/madpil-hero.mp4"
           poster="assets/madpil-frame-1.png" />
-        {/* bottom fade into the page background */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-[18%] z-[1] pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, rgba(3,8,20,0), #030814)" }} />
-      </div>
 
-      {/* Partners bar */}
+        {/* Top-to-transparent gradient so text stays readable */}
+        <div className="absolute inset-x-0 top-0 h-[55%] z-[1] pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, rgba(3,8,20,0.80) 0%, rgba(3,8,20,0.45) 50%, rgba(3,8,20,0) 100%)" }} />
+
+        {/* Bottom fade into page */}
+        <div className="absolute inset-x-0 bottom-0 h-[20%] z-[1] pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, rgba(3,8,20,0), #030814)" }} />
+
+        {/* Text — anchored to the top of the hero, over the video */}
+        <div className="hero-content">
+          <div className="max-w-7xl mx-auto px-6 md:px-8">
+            <div className="max-w-2xl flex flex-col gap-5">
+              <motion.div
+                initial={{ opacity: 0, filter: "blur(10px)", y: 12 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}>
+                <span className="liquid-glass inline-flex items-center gap-2 rounded-full pl-1 pr-4 py-1 text-sm font-body text-white/90">
+                  <span className="bg-white text-black rounded-full px-2.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase">Nuevo</span>
+                  <span className="font-light">Tu negocio, conectado por IA.</span>
+                </span>
+              </motion.div>
+
+              <h1 className="font-heading italic text-white text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[5rem] leading-[0.86] tracking-[-0.03em]">
+                <BlurText text="Tu negocio, despierto las 24 horas." stagger={0.1} />
+              </h1>
+
+              <motion.p
+                className="max-w-xl text-sm md:text-base text-white/90 font-body font-light leading-snug"
+                initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}>
+                Webs, redes, WhatsApp y recepción virtual conectados por IA. Un solo sistema. Sin pausas. Sin fricciones.
+              </motion.p>
+
+              <motion.div
+                className="flex flex-wrap items-center gap-3"
+                initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ duration: 0.6, delay: 1.1 }}>
+                <a href="#cta" className="liquid-glass-strong inline-flex items-center gap-2 rounded-full pl-5 pr-2 py-2 text-sm font-body font-medium text-white">
+                  Agendar diagnóstico
+                  <span className="bg-white text-black rounded-full p-1.5"><ArrowUpRight className="w-3.5 h-3.5" /></span>
+                </a>
+                <a href="#demo" className="inline-flex items-center gap-2 px-3 py-2 text-sm font-body text-white/90 hover:text-white transition">
+                  <span className="grid place-items-center w-7 h-7 rounded-full liquid-glass">
+                    <Play className="w-3 h-3 fill-white text-white" />
+                  </span>
+                  Ver demo
+                </a>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners bar — below the hero section */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-14">
         <motion.div
           initial={{ opacity: 0 }}
@@ -279,7 +286,7 @@ function Hero() {
           )}
         </motion.div>
       </div>
-    </section>);
+    </>);
 
 }
 
