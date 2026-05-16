@@ -145,41 +145,26 @@
   .haze-fade-top    { background: linear-gradient(to bottom, #030814, rgba(3,8,20,0)); }
   .haze-fade-bottom { background: linear-gradient(to top,    #030814, rgba(3,8,20,0)); }
 
-  /* Hero stage — aspect locked to the video so nothing is cropped.
-     Video sits in .hero-video-wrap (full width, aspect 16/9, contained).
-     Hero content is absolutely positioned on top of the lower-left third. */
+  /* Hero stage — text flows above the video in normal document order. */
   .hero-stage {
     padding-top: 96px;            /* leave room for the floating navbar */
-    min-height: 100svh;
   }
   .hero-video-wrap {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    max-height: min(900px, 78svh);
+    max-height: min(900px, 80svh);
     overflow: hidden;
     background: #030814;
   }
   .hero-video-wrap video {
     image-rendering: auto;
   }
-  .hero-content {
-    position: absolute;
-    left: 0; right: 0;
-    bottom: 96px;                 /* sits above the partners bar */
-    z-index: 10;
-  }
   @media (max-width: 768px) {
-    .hero-stage { padding-top: 84px; min-height: auto; }
+    .hero-stage { padding-top: 84px; }
     .hero-video-wrap {
-      aspect-ratio: 4 / 3;        /* a touch taller on mobile so subject reads */
+      aspect-ratio: 4 / 3;
       max-height: 60svh;
-    }
-    .hero-content {
-      position: relative;
-      bottom: auto;
-      padding-top: 24px;
-      padding-bottom: 8px;
     }
   }
 

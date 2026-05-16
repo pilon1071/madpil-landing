@@ -208,39 +208,14 @@ function Navbar() {
 ------------------------------------------------------------------ */
 function Hero() {
   return (
-    <section id="top" className="relative w-full overflow-hidden hero-stage">
-      {/* Video stage — sized to the video's aspect ratio so the whole frame is visible */}
-      <div className="hero-video-wrap">
-        <PingPongVideo
-          src="assets/madpil-hero.mp4"
-          poster="assets/madpil-frame-1.png" />
-        
-        {/* Subtle dark wash so left-side text is readable */}
-        <div
-          className="absolute inset-0 z-[1] pointer-events-none"
-          style={{
-            background:
-            "linear-gradient(90deg, rgba(3,8,20,0.55) 0%, rgba(3,8,20,0.25) 35%, rgba(3,8,20,0) 60%)"
-          }} />
-        
-        {/* Bottom fade only over the last sliver — keeps the cluster of icons visible */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-[22%] z-[1] pointer-events-none"
-          style={{
-            background:
-            "linear-gradient(to bottom, rgba(3,8,20,0) 0%, rgba(3,8,20,0.65) 60%, #030814 100%)"
-          }} />
-        
-      </div>
-
-      {/* Foreground content — left-aligned so the imagery stays visible on the right */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 hero-content">
-        <div className="max-w-[34rem] flex flex-col gap-6">
+    <section id="top" className="w-full hero-stage">
+      {/* Text content — in normal flow, above the video */}
+      <div className="max-w-7xl mx-auto px-6 md:px-8 pb-10">
+        <div className="max-w-2xl flex flex-col gap-6">
           <motion.div
             initial={{ opacity: 0, filter: "blur(10px)", y: 12 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}>
-            
             <span className="liquid-glass inline-flex items-center gap-2 rounded-full pl-1 pr-4 py-1 text-sm font-body text-white/90">
               <span className="bg-white text-black rounded-full px-2.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase">Nuevo</span>
               <span className="font-light">Tu negocio, conectado por IA.</span>
@@ -252,11 +227,10 @@ function Hero() {
           </h1>
 
           <motion.p
-            className="max-w-md text-sm md:text-base text-white/90 font-body font-light leading-snug"
+            className="max-w-xl text-sm md:text-base text-white/90 font-body font-light leading-snug"
             initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}>
-            
             Webs, redes, WhatsApp y recepción virtual conectados por IA. Un solo sistema. Sin pausas. Sin fricciones.
           </motion.p>
 
@@ -265,7 +239,6 @@ function Hero() {
             initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 0.6, delay: 1.1 }}>
-            
             <a href="#cta" className="liquid-glass-strong inline-flex items-center gap-2 rounded-full pl-5 pr-2 py-2 text-sm font-body font-medium text-white">
               Agendar diagnóstico
               <span className="bg-white text-black rounded-full p-1.5"><ArrowUpRight className="w-3.5 h-3.5" /></span>
@@ -280,19 +253,29 @@ function Hero() {
         </div>
       </div>
 
-      {/* Partners bar — sits below the video stage on the same dark canvas */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-6 pb-14">
+      {/* Video — full width below the text */}
+      <div className="hero-video-wrap">
+        <PingPongVideo
+          src="assets/madpil-hero.mp4"
+          poster="assets/madpil-frame-1.png" />
+        {/* bottom fade into the page background */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-[18%] z-[1] pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, rgba(3,8,20,0), #030814)" }} />
+      </div>
+
+      {/* Partners bar */}
+      <div className="max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-14">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.4 }}
           className="flex flex-wrap items-center gap-x-10 md:gap-x-14 gap-y-4">
-          
           <span className="liquid-glass rounded-full px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-white/70 font-body">
             Construido con la stack de
           </span>
           {["Stripe", "Vercel", "OpenAI", "Twilio", "Meta"].map((n) =>
-          <span key={n} className="text-2xl md:text-3xl font-heading italic text-white/85">{n}</span>
+            <span key={n} className="text-2xl md:text-3xl font-heading italic text-white/85">{n}</span>
           )}
         </motion.div>
       </div>
