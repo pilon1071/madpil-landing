@@ -224,9 +224,9 @@ function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-[20%] z-[1] pointer-events-none"
           style={{ background: "linear-gradient(to bottom, rgba(3,8,20,0), #030814)" }} />
 
-        {/* Text — anchored to the top of the hero, over the video */}
+        {/* Text + partners — anchored to the top of the hero, over the video */}
         <div className="hero-content">
-          <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-8">
             <div className="max-w-2xl flex flex-col gap-5">
               <motion.div
                 initial={{ opacity: 0, filter: "blur(10px)", y: 12 }}
@@ -267,25 +267,23 @@ function Hero() {
                 </a>
               </motion.div>
             </div>
+
+            {/* Partners bar — below CTAs, still overlaid on the video */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.4 }}
+              className="flex flex-wrap items-center gap-x-10 md:gap-x-14 gap-y-3">
+              <span className="liquid-glass rounded-full px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-white/70 font-body">
+                Construido con la stack de
+              </span>
+              {["Stripe", "Vercel", "OpenAI", "Twilio", "Meta"].map((n) =>
+                <span key={n} className="text-2xl md:text-3xl font-heading italic text-white/85">{n}</span>
+              )}
+            </motion.div>
           </div>
         </div>
       </section>
-
-      {/* Partners bar — below the hero section */}
-      <div className="max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-14">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.4 }}
-          className="flex flex-wrap items-center gap-x-10 md:gap-x-14 gap-y-4">
-          <span className="liquid-glass rounded-full px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-white/70 font-body">
-            Construido con la stack de
-          </span>
-          {["Stripe", "Vercel", "OpenAI", "Twilio", "Meta"].map((n) =>
-            <span key={n} className="text-2xl md:text-3xl font-heading italic text-white/85">{n}</span>
-          )}
-        </motion.div>
-      </div>
     </>);
 
 }
