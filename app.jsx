@@ -255,7 +255,7 @@ function Hero() {
                 initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
                 animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}>
-                <a href="#cta" className="liquid-glass-strong inline-flex items-center gap-2 rounded-full pl-5 pr-2 py-2 text-sm font-body font-medium text-white">
+                <a href="https://wa.me/1956808967?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20un%20diagn%C3%B3stico%20gratuito%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer" className="liquid-glass-strong inline-flex items-center gap-2 rounded-full pl-5 pr-2 py-2 text-sm font-body font-medium text-white">
                   Agendar diagnóstico
                   <span className="bg-white text-black rounded-full p-1.5"><ArrowUpRight className="w-3.5 h-3.5" /></span>
                 </a>
@@ -766,7 +766,7 @@ function FinalCTA() {
         </FadeIn>
         <FadeIn delay={0.35}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href="#" className="liquid-glass-strong inline-flex items-center gap-2 rounded-full pl-6 pr-2 py-2.5 text-sm font-body font-medium text-white">
+            <a href="https://wa.me/1956808967?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20un%20diagn%C3%B3stico%20gratuito%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer" className="liquid-glass-strong inline-flex items-center gap-2 rounded-full pl-6 pr-2 py-2.5 text-sm font-body font-medium text-white">
               Agendar llamada
               <span className="bg-white text-black rounded-full p-1.5"><ArrowUpRight className="w-3.5 h-3.5" /></span>
             </a>
