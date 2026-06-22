@@ -194,8 +194,8 @@ function Navbar() {
           <span className="hidden sm:inline font-heading italic text-white text-lg tracking-tight">Madpil Technology</span>
         </a>
         <NavPill />
-        <a href="#cta" className="inline-flex items-center gap-1.5 bg-white text-black rounded-full pl-3.5 pr-2 py-1.5 text-sm font-body font-semibold hover:bg-white/90 transition-colors">
-          Empezar
+        <a href="tel:9569966480" className="inline-flex items-center gap-1.5 bg-white text-black rounded-full pl-3.5 pr-2 py-1.5 text-sm font-body font-semibold hover:bg-white/90 transition-colors">
+          Llamar
           <span className="bg-black text-white rounded-full p-0.5"><ArrowUpRight className="w-3.5 h-3.5" /></span>
         </a>
       </div>
