@@ -316,7 +316,7 @@ function ComoFunciona() {
   return (
     <section id="cómo-funciona" className="relative py-32 px-6 md:px-8 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img src="assets/madpil-frame-2.png" alt=""
+        <img src="assets/madpil-frame-2.png" alt="" role="presentation"
         className="w-full h-full object-cover"
         style={{ filter: "saturate(0.45) blur(12px)", opacity: 0.45 }} />
         <div className="absolute inset-x-0 top-0 h-[200px]" style={{ background: "linear-gradient(to bottom, #030814, rgba(3,8,20,0))" }} />
@@ -620,7 +620,7 @@ function Stats() {
   return (
     <section className="relative py-32 px-6 md:px-8 overflow-hidden">
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <img src="assets/madpil-frame-2.png" alt=""
+        <img src="assets/madpil-frame-2.png" alt="" role="presentation"
         className="w-full h-full object-cover"
         style={{ filter: "saturate(0.35) blur(20px)", opacity: 0.25 }} />
         <div className="absolute inset-0" style={{ background: "radial-gradient(60% 60% at 50% 50%, rgba(45,168,255,0.10), transparent 70%)" }} />
