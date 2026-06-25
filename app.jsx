@@ -721,6 +721,7 @@ function Pricing() {
       monthly: "USD 290/mes",
       bullets: ["Web premium", "Tienda online", "Mensajería con IA", "Recepcionista virtual", "Campañas en redes", "Soporte continuo"],
       featured: false,
+      accent: null,
     },
     {
       badge: "Asistente Virtual 24/7",
@@ -729,51 +730,68 @@ function Pricing() {
       monthly: "USD 150/mes",
       bullets: ["Toma llamadas", "Agenda citas", "Confirma citas", "Contesta SMS", "Contesta WhatsApp", "Da información"],
       featured: true,
+      accent: "green",
+    },
+    {
+      badge: "Tienda Inteligente 24/7",
+      label: "Vende sin parar",
+      setup: "USD 1,490",
+      monthly: "USD 150/mes",
+      bullets: ["Catálogo digital", "Asistente de ventas 24/7", "Recuperación de carritos perdidos", "Recomendación de productos", "Captación de prospectos"],
+      featured: true,
+      accent: "blue",
     },
   ];
 
   return (
     <section id="precios" className="relative py-32 px-6 md:px-8">
-      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-        {plans.map((plan, idx) =>
-          <FadeIn key={idx} delay={idx * 0.1}>
-            <div className="relative">
-              {plan.featured && (
-                <div className="absolute -inset-px rounded-3xl pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(77,255,156,0.35), rgba(45,168,255,0.35))", filter: "blur(1px)" }} />
-              )}
-              <div className="relative liquid-glass rounded-3xl p-8 md:p-10 flex flex-col gap-7">
-                <div className="flex items-center justify-between flex-wrap gap-3">
-                  <Badge>{plan.badge}</Badge>
-                  <span className="text-[10px] font-body uppercase tracking-[0.2em] text-white/40">{plan.label}</span>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-baseline gap-3 flex-wrap">
-                    <span className="font-heading italic text-white text-5xl md:text-6xl leading-none">{plan.setup}</span>
-                    <span className="text-white/55 font-body font-light text-sm">setup</span>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        {plans.map((plan, idx) => {
+          const checkBg = plan.accent === "green" ? "rgba(77,255,156,0.18)" : "rgba(45,168,255,0.18)";
+          const checkColor = plan.accent === "green" ? "#4DFF9C" : "#2DA8FF";
+          const glowBg = plan.accent === "green"
+            ? "linear-gradient(135deg, rgba(77,255,156,0.35), rgba(45,168,255,0.2))"
+            : "linear-gradient(135deg, rgba(45,168,255,0.35), rgba(77,255,156,0.2))";
+          return (
+            <FadeIn key={idx} delay={idx * 0.1}>
+              <div className="relative">
+                {plan.featured && (
+                  <div className="absolute -inset-px rounded-3xl pointer-events-none" style={{ background: glowBg, filter: "blur(1px)" }} />
+                )}
+                <div className="relative liquid-glass rounded-3xl p-8 md:p-10 flex flex-col gap-7">
+                  <div className="flex items-center justify-between flex-wrap gap-3">
+                    <Badge>{plan.badge}</Badge>
+                    <span className="text-[10px] font-body uppercase tracking-[0.2em] text-white/40">{plan.label}</span>
                   </div>
-                  <span className="font-body font-light text-white/80 text-2xl">+ {plan.monthly}</span>
-                </div>
-                <ul className="grid grid-cols-1 gap-y-3">
-                  {plan.bullets.map((b) =>
-                    <li key={b} className="flex items-center gap-2 text-white/85 font-body font-light text-sm">
-                      <span className="grid place-items-center w-5 h-5 flex-shrink-0 rounded-full" style={{ background: plan.featured ? "rgba(77,255,156,0.18)" : "rgba(45,168,255,0.18)" }}>
-                        <Check className="w-3 h-3" style={{ color: plan.featured ? "#4DFF9C" : "#2DA8FF" }} />
-                      </span>
-                      {b}
-                    </li>
-                  )}
-                </ul>
-                <div className="flex flex-col items-stretch gap-3">
-                  <a href="https://wa.me/9568693178?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20un%20diagn%C3%B3stico%20gratuito%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer" className="liquid-glass-strong inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-body font-medium text-white">
-                    Empezar ahora
-                    <span className="bg-white text-black rounded-full p-1.5"><ArrowUpRight className="w-3.5 h-3.5" /></span>
-                  </a>
-                  <span className="text-center text-white/45 font-body font-light text-xs">Sin permanencia. Cancelás cuando quieras.</span>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-baseline gap-3 flex-wrap">
+                      <span className="font-heading italic text-white text-4xl md:text-5xl leading-none">{plan.setup}</span>
+                      <span className="text-white/55 font-body font-light text-sm">setup</span>
+                    </div>
+                    <span className="font-body font-light text-white/80 text-xl">+ {plan.monthly}</span>
+                  </div>
+                  <ul className="grid grid-cols-1 gap-y-3">
+                    {plan.bullets.map((b) =>
+                      <li key={b} className="flex items-center gap-2 text-white/85 font-body font-light text-sm">
+                        <span className="grid place-items-center w-5 h-5 flex-shrink-0 rounded-full" style={{ background: checkBg }}>
+                          <Check className="w-3 h-3" style={{ color: checkColor }} />
+                        </span>
+                        {b}
+                      </li>
+                    )}
+                  </ul>
+                  <div className="flex flex-col items-stretch gap-3">
+                    <a href="https://wa.me/9568693178?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20un%20diagn%C3%B3stico%20gratuito%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer" className="liquid-glass-strong inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-body font-medium text-white">
+                      Empezar ahora
+                      <span className="bg-white text-black rounded-full p-1.5"><ArrowUpRight className="w-3.5 h-3.5" /></span>
+                    </a>
+                    <span className="text-center text-white/45 font-body font-light text-xs">Sin permanencia. Cancelás cuando quieras.</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </FadeIn>
-        )}
+            </FadeIn>
+          );
+        })}
       </div>
     </section>);
 }
