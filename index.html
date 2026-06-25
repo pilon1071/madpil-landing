@@ -195,21 +195,47 @@
       transition-duration: 0.001ms !important;
     }
   }
+
+  /* Visually hidden — visible to crawlers and screen readers, not to users */
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
 </style>
 
 <!-- React production builds -->
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 
-<!-- Framer Motion -->
-<script src="https://unpkg.com/framer-motion@11.18.2/dist/framer-motion.js"></script>
+<!-- Framer Motion (jsDelivr auto-minifies and compresses) -->
+<script src="https://cdn.jsdelivr.net/npm/framer-motion@11.18.2/dist/framer-motion.js"></script>
 <script>
   window.Motion = window.Motion || window.framerMotion || window.FramerMotion;
 </script>
 
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <!-- Static semantic content for SEO crawlers — React replaces this on load -->
+    <div class="sr-only">
+      <h1>Tu negocio, despierto las 24 horas.</h1>
+      <p>Webs, redes, WhatsApp y recepción virtual conectados por IA. Un solo sistema. Sin pausas. Sin fricciones.</p>
+      <h2>Tu negocio vive en partes.</h2>
+      <p>Una web por un lado, redes por otro, mensajes que se pierden entre apps. Cada minuto desconectado es un cliente que eligió a la competencia.</p>
+      <h2>Una red. Cinco canales. Cero caos.</h2>
+      <p>Compartís tu visión. Nuestra IA conecta web, tienda, redes, WhatsApp y recepción virtual en un mismo flujo. En días, no en trimestres.</p>
+      <h2>Servicios de Madpil Technology</h2>
+      <p>Web con IA integrada, gestión de redes sociales, automatización de WhatsApp, recepción virtual 24/7.</p>
+      <h2>Contáctanos</h2>
+      <p>Teléfono: <a href="tel:9568693178">9568693178</a></p>
+      <p>WhatsApp: <a href="https://wa.me/9568693178?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20un%20diagn%C3%B3stico%20gratuito%20para%20mi%20negocio">Agendar diagnóstico gratuito</a></p>
+    </div>
+  </div>
 
   <!-- Static content for search engine crawlers (JS renders the full page) -->
   <noscript>
