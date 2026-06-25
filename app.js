@@ -1058,7 +1058,7 @@ function Pricing() {
     label: "Vende sin parar",
     setup: "USD 1,490",
     monthly: "USD 150/mes",
-    bullets: ["Catálogo digital", "Asistente de ventas 24/7", "Recuperación de carritos perdidos", "Recomendación de productos", "Captación de prospectos"],
+    bullets: ["Catálogo digital", "Asistente de ventas 24/7", "Recuperación de carritos perdidos", "Recomendación de productos", "Captación de prospectos", "Búsqueda inteligente", "Cierre de ventas"],
     featured: true,
     accent: "blue"
   }];
