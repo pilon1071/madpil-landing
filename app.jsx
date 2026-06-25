@@ -715,11 +715,11 @@ function Testimonials() {
 function Pricing() {
   const plans = [
     {
-      badge: "Plan Conectado",
+      badge: "MadPil Smart Web",
       label: "Tarifa única",
       setup: "USD 1,490",
       monthly: "USD 290/mes",
-      bullets: ["Web premium", "Tienda online", "Mensajería con IA", "Recepcionista virtual", "Campañas en redes", "Soporte continuo"],
+      bullets: ["Web premium", "Tienda Inteligente 24/7", "Asistente Virtual 24/7", "Campañas en redes", "Captura de prospectos", "SEO inteligente automático", "Soporte continuo"],
       featured: false,
       accent: null,
     },
