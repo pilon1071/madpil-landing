@@ -177,6 +177,35 @@
     }
   }
 
+  /* Infinite carousel */
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes scroll-right {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+  .carousel-wrapper {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+  .carousel-track-left  {
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+    animation: scroll-left 40s linear infinite;
+  }
+  .carousel-track-right {
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+    animation: scroll-right 32s linear infinite;
+  }
+  .carousel-track-left:hover,
+  .carousel-track-right:hover { animation-play-state: paused; }
+
   /* Visually hidden — visible to crawlers and screen readers, not to users */
   .sr-only {
     position: absolute;

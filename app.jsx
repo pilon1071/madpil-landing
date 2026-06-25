@@ -648,53 +648,65 @@ function Stats() {
 }
 
 /* ------------------------------------------------------------------
-   Testimonials
+   Testimonials — infinite carousel
 ------------------------------------------------------------------ */
 function Testimonials() {
   const data = [
-  {
-    q: "Pasamos de responder mensajes a las 11pm a tener 80% del trabajo cerrado antes del primer café.",
-    n: "Lucía Romero", r: "Dueña, Estudio Albatros"
-  },
-  {
-    q: "La recepcionista virtual sola me pagó el sistema en el segundo mes.",
-    n: "Diego Salazar", r: "Director, Clínica Norte"
-  },
-  {
-    q: "Una sola plataforma, cinco canales, cero caos. Es lo más cercano que tuve a tener clones.",
-    n: "María Fernanda Vega", r: "Founder, Mercado Vivo"
-  }];
+    { q: "Pasamos de responder mensajes a las 11pm a tener 80% del trabajo cerrado antes del primer café.", n: "Lucía Romero", r: "Dueña, Estudio Albatros" },
+    { q: "La recepcionista virtual sola me pagó el sistema en el segundo mes.", n: "Diego Salazar", r: "Director, Clínica Norte" },
+    { q: "Una sola plataforma, cinco canales, cero caos. Es lo más cercano que tuve a tener clones.", n: "María Fernanda Vega", r: "Founder, Mercado Vivo" },
+    { q: "Antes perdía clientes los fines de semana. Ahora el bot cierra citas mientras duermo.", n: "Carlos Mendoza", r: "Propietario, Gym Evolución" },
+    { q: "En 30 días ya teníamos la web, WhatsApp automatizado y redes integradas. Increíble.", n: "Ana Beltrán", r: "CEO, Boutique Luna" },
+    { q: "Mis clientes me preguntan si tengo un equipo enorme. Solo tengo a Madpil.", n: "Roberto Guzmán", r: "Consultor Independiente" },
+    { q: "El diagnóstico gratuito me abrió los ojos. Estaba dejando dinero sobre la mesa cada día.", n: "Sofía Herrera", r: "Directora, Academia Ritmo" },
+    { q: "Reduje mi tiempo en atención al cliente un 70%. Ahora me enfoco en crecer.", n: "Andrés Mora", r: "Fundador, Taller Express" },
+    { q: "La integración con WhatsApp cambió todo. Los clientes reciben respuesta en segundos.", n: "Isabel Cruz", r: "Gerente, Restaurante El Fogón" },
+  ];
+
+  const row1 = data.slice(0, 5);
+  const row2 = data.slice(5);
+
+  const Card = ({ t }) => (
+    React.createElement("div", { className: "flex-shrink-0 w-72 md:w-80 liquid-glass rounded-2xl p-6 flex flex-col gap-5" },
+      React.createElement("p", { className: "text-white/85 font-body font-light text-sm italic leading-relaxed" }, `"${t.q}"`),
+      React.createElement("div", { className: "mt-auto flex items-center gap-3" },
+        React.createElement("div", { className: "w-9 h-9 rounded-full liquid-glass-strong grid place-items-center flex-shrink-0" },
+          React.createElement("span", { className: "text-white/85 font-heading italic text-sm" },
+            t.n.split(" ").map(x => x[0]).slice(0, 2).join("")
+          )
+        ),
+        React.createElement("div", { className: "flex flex-col leading-tight" },
+          React.createElement("span", { className: "text-white font-body font-medium text-sm" }, t.n),
+          React.createElement("span", { className: "text-white/50 font-body font-light text-xs" }, t.r)
+        )
+      )
+    )
+  );
 
   return (
-    <section className="relative py-32 px-6 md:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative py-32 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 md:px-8">
         <div className="flex flex-col items-center text-center gap-6 mb-16">
           <FadeIn><Badge>Lo que dicen</Badge></FadeIn>
           <h2 className="font-heading italic text-4xl md:text-5xl lg:text-6xl text-white leading-[0.92] max-w-3xl">
             <BlurText text="No es solo lo que decimos." />
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {data.map((t, i) =>
-          <FadeIn key={i} delay={i * 0.08}>
-              <div className="liquid-glass rounded-2xl p-8 h-full flex flex-col gap-6">
-                <p className="text-white/85 font-body font-light text-base italic leading-relaxed">"{t.q}"</p>
-                <div className="mt-auto flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full liquid-glass-strong grid place-items-center">
-                    <span className="text-white/85 font-heading italic text-sm">{t.n.split(" ").map((x) => x[0]).slice(0, 2).join("")}</span>
-                  </div>
-                  <div className="flex flex-col leading-tight">
-                    <span className="text-white font-body font-medium text-sm">{t.n}</span>
-                    <span className="text-white/50 font-body font-light text-xs">{t.r}</span>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-          )}
+      </div>
+
+      <div className="flex flex-col gap-5">
+        <div className="carousel-wrapper">
+          <div className="carousel-track-left flex gap-5 w-fit">
+            {[...row1, ...row1].map((t, i) => <Card key={i} t={t} />)}
+          </div>
+        </div>
+        <div className="carousel-wrapper">
+          <div className="carousel-track-right flex gap-5 w-fit">
+            {[...row2, ...row2].map((t, i) => <Card key={i} t={t} />)}
+          </div>
         </div>
       </div>
     </section>);
-
 }
 
 /* ------------------------------------------------------------------
